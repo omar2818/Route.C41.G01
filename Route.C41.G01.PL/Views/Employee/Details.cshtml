@@ -1,4 +1,4 @@
-﻿@model Employee
+﻿@model EmployeeViewModel
 @{
     ViewData["Title"] = "Employee Details";
 }
@@ -9,38 +9,8 @@
 <br />
 
 <div>
-    <div class="form-group">
-        <label class="col-form-label" asp-for="Name">Name</label>
-        <input asp-for="Name" class="form-control" readonly/>
-    </div>
-    <div class="form-group">
-        <label class="col-form-label" asp-for="Email">Email</label>
-        <input asp-for="Email" class="form-control" readonly />
-    </div>
-    <div class="form-group">
-        <label class="col-form-label" asp-for="Address">Address</label>
-        <input asp-for="Address" class="form-control" readonly />
-    </div>
-    <div class="form-group">
-        <label class="col-form-label" asp-for="Age">Age</label>
-        <input asp-for="Age" class="form-control" readonly />
-    </div>
-    <div class="form-group">
-        <label class="col-form-label" asp-for="Salary">Salary</label>
-        <input asp-for="Salary" class="form-control" readonly/>
-    </div>
-    <div class="form-group">
-        <label class="col-form-label" asp-for="Gender">Gender</label>
-        <input asp-for="Gender" class="form-control" readonly/>
-    </div>
-    <div class="form-group">
-        <input asp-for="IsActive" class="form-check-input" readonly />
-        <label class="col-form-label" asp-for="IsActive">Is Active</label>
-    </div>
-    <div class="form-group">
-        <label class="col-form-label" asp-for="HiringDate">Hiring Date</label>
-        <input asp-for="HiringDate" class="form-control" readonly />
-    </div>
+    
+    <partial name="PartialViews/DetailsDeleteEmployeePartial" />
 
     <a asp-controller="Employee" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a> |
     <a asp-controller="Employee" asp-action="Index" class="btn btn-light">Back To List</a>

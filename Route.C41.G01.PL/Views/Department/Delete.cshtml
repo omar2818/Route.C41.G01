@@ -8,18 +8,7 @@
 
 <form asp-action="Delete">
 
-    <div class="form-group">
-        <label class="col-form-label" asp-for="Code">Code</label>
-        <input asp-for="Code" class="form-control" readonly />
-    </div>
-    <div class="form-group">
-        <label class="col-form-label" asp-for="Name">Name</label>
-        <input asp-for="Name" class="form-control" readonly />
-    </div>
-    <div class="form-group">
-        <label class="col-form-label" asp-for="DateOfCreation">Date of Creation</label>
-        <input asp-for="DateOfCreation" class="form-control" readonly />
-    </div>
+    <partial name="PartialViews/DetailsDeleteDepartmentPartial" />
 
     <input type="submit" value="Delete" class="btn btn-danger" /> |
     <a asp-action="Index" class="btn btn-secondary">Cancel</a>

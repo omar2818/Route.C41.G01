@@ -18,9 +18,14 @@ namespace Route.C41.G01.BLL.Repositories
             
         }
 
-        public IQueryable<Employee> GetEmployeesByAddress(string address)
+        public IEnumerable<Employee> GetEmployeesByAddress(string address)
         {
-            return _dbcontext.Employees.Where(E => address.Equals(E.Address, StringComparison.OrdinalIgnoreCase));
+            return _dbcontext.Employees.ToList<Employee>().Where(E => address.Equals(E.Address, StringComparison.OrdinalIgnoreCase));
+        }
+
+        public IEnumerable<Employee> GetEmployeesByName(string Name)
+        {
+            return _dbcontext.Employees.ToList<Employee>().Where(E => Name.Equals(E.Name, StringComparison.OrdinalIgnoreCase));
         }
     }
 }

@@ -1,7 +1,9 @@
-﻿@model Employee
+﻿@model EmployeeViewModel
+
 
 @{
     ViewData["Title"] = "Create Employee";
+
 }
 
 <h1>Create New Employee</h1>
@@ -10,47 +12,9 @@
 <br />
 
 <form asp-action="Create">
-    <div class="form-group">
-        <label class="col-form-label" asp-for="Name">Name</label>
-        <input asp-for="Name" class="form-control" />
-        <span asp-validation-for="Name" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label class="col-form-label" asp-for="Email">Email</label>
-        <input asp-for="Email" class="form-control" />
-        <span asp-validation-for="Email" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label class="col-form-label" asp-for="Address">Address</label>
-        <input asp-for="Address" class="form-control" />
-        <span asp-validation-for="Address" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label class="col-form-label" asp-for="Age">Age</label>
-        <input asp-for="Age" class="form-control" />
-        <span asp-validation-for="Age" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label class="col-form-label" asp-for="Salary">Salary</label>
-        <input asp-for="Salary" class="form-control" />
-        <span asp-validation-for="Salary" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label class="col-form-label" asp-for="Gender">Gender</label>
-        @* <input asp-for="Gender" class="form-control" /> *@
-        @Html.DropDownListFor(model => model.Gender,
-                 new SelectList(Enum.GetValues(typeof(Gender))))
+    
+    <partial name="PartialViews/CreateEditEmployeePartial" />
 
-        <span asp-validation-for="Gender" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <input asp-for="IsActive" class="form-check-input" />
-        <label class="col-form-label" asp-for="IsActive">Is Active</label>
-    </div>
-    <div class="form-group">
-        <label class="col-form-label" asp-for="HiringDate">Hiring Date</label>
-        <input asp-for="HiringDate" class="form-control" />
-    </div>
 
     <input type="submit" value="Create" class="btn btn-primary" /> |
     <a asp-controller="Employee" asp-action="Index" class="btn btn-light">Back To List</a>

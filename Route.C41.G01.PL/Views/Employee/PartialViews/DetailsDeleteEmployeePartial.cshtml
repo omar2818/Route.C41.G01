@@ -1,0 +1,54 @@
+﻿@model EmployeeViewModel
+
+@inject ApplicationDbContext _AppDpContext
+@inject IMapper _mapper
+
+@{
+
+    Employee employee = _mapper.Map<Employee>(Model);
+    _AppDpContext.Entry(employee).Reference(E => E.Department);
+}
+
+<div class="form-group">
+    <label class="col-form-label" asp-for="Name">Name</label>
+    <input asp-for="Name" class="form-control" readonly />
+</div>
+<div class="form-group">
+    <label class="col-form-label" asp-for="Email">Email</label>
+    <input asp-for="Email" class="form-control" readonly />
+</div>
+<div class="form-group">
+    <label class="col-form-label" asp-for="Address">Address</label>
+    <input asp-for="Address" class="form-control" readonly />
+</div>
+<div class="form-group">
+    <label class="col-form-label" asp-for="Age">Age</label>
+    <input asp-for="Age" class="form-control" readonly />
+</div>
+<div class="form-group">
+    <label class="col-form-label" asp-for="Salary">Salary</label>
+    <input asp-for="Salary" class="form-control" readonly />
+</div>
+<div class="form-group">
+    <label class="col-form-label" asp-for="Gender">Gender</label>
+    <input asp-for="Gender" class="form-control" readonly />
+</div>
+<div class="form-group">
+    <input asp-for="IsActive" class="form-check-input" readonly />
+    <label class="col-form-label" asp-for="IsActive">Is Active</label>
+</div>
+<div class="form-group">
+    <label class="col-form-label" asp-for="HiringDate">Hiring Date</label>
+    <input asp-for="HiringDate" class="form-control" readonly />
+</div>
+@* <div class="form-group">
+    <label class="col-form-label" asp-for="Department">Department</label>
+    <input asp-for="Department" value="@Model.Department?.Name" class="form-control" readonly />
+</div> *@
+<div class="form-group">
+    <label class="col-form-label" asp-for="Department"></label>
+    <select class="form-control" asp-for="DepartmentId" readonly>
+        <option value="@Model.DepartmentId">@Model.Department?.Name</option>
+    </select>
+
+</div>

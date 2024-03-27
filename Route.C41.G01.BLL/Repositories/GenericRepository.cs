@@ -49,6 +49,10 @@ namespace Route.C41.G01.BLL.Repositories
 
         public IEnumerable<T> GetAll()
         {
+            if(typeof(T) == typeof(Employee))
+            {
+                return (IEnumerable<T>) _dbcontext.Employees.Include(E => E.Department).AsNoTracking().ToList();
+            }
             return _dbcontext.Set<T>().AsNoTracking().ToList();
         }
     }
